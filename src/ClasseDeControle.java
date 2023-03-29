@@ -6,9 +6,14 @@ public class ClasseDeControle {
     public static void main(String[] args) throws Exception {
         CiaAerea cia1 = new CiaAerea("G3","GOl");
         CiaAerea cia2 = new CiaAerea("JJ", "LATAM");
+
+        GerenciadorCias gCias = new GerenciadorCias();
+        gCias.adicionar(cia1);
+        gCias.adicionar(cia2);
+         
         System.out.println();
-        Aeronave aviao1 = new Aeronave(733, "Boeing 737", 120);
-        Aeronave aviao2 = new Aeronave(877, "Boeing 664", 150);
+        Aeronave aviao1 = new Aeronave("733", "Boeing 737", 120);
+        Aeronave aviao2 = new Aeronave("877", "Boeing 664", 150);
         System.out.println();
         Aeroporto aero1 = new Aeroporto("Poa", "Salgado Filho",null);
         Aeroporto aero2 = new Aeroporto("GRU", "Guarulhos", null);

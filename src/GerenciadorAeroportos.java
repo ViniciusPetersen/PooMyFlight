@@ -15,4 +15,18 @@ public class GerenciadorAeroportos {
         }
         return instance;
     }
+
+
+    public Aeroporto procurarPorCodigo(String cod){
+        for (int i=0; i<aeroportos.size(); i++){
+            Aeroporto a = aeroportos.get(i);
+            if(a.getCodigo().equals(cod))
+            return a;
+        }
+
+        return null;
+    }
+    public ArrayList<Aeroporto> ListarTodos(){
+        return aeroportos;
+    }
 }

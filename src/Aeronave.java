@@ -1,14 +1,14 @@
 public class Aeronave {
-    private int codigo;
+    private String codigo;
     private String descricao;
     private int capacidade;
-
-    public Aeronave(int umCodigo, String umaDescricao, int umaCapacidade){
+    private Rota rota;
+    public Aeronave(String umCodigo, String umaDescricao, int umaCapacidade){
         this.codigo = umCodigo;
         this.descricao = umaDescricao;
         this.capacidade = umaCapacidade;
     }
-    public int getCodigo(){
+    public String getCodigo(){
         return codigo;
     }
     public String getDescricao(){

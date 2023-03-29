@@ -1,7 +1,7 @@
 public class CiaAerea {
     private String codigo;
     private String nome;
-
+    private Rota rota;
     public CiaAerea(String umCodigo, String umNome){
         this.codigo = umCodigo;
         this.nome = umNome;
@@ -14,8 +14,4 @@ public class CiaAerea {
         return nome;
     }
 
-    public void Criar(String umCodigo, String umNome){
-
-    
-    }
 }

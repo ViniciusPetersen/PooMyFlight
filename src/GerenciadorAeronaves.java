@@ -15,8 +15,21 @@ public class GerenciadorAeronaves {
         }
         return instance;
     }
-
-    public void cadastrarAeronave(){
-
+    public Aeronave procurarPorCodigo(String cod){
+        for (int i=0; i<aeronaves.size(); i++){
+            Aeronave a = aeronaves.get(i);
+            if(a.getCodigo().equals(cod))
+            return a;
+        }
+        return null;
     }
+
+    public void adicionarAeronave(Aeronave aviao){
+        aeronaves.add(aviao);
+    }
+    public ArrayList<Aeronave> ListarTodos(){
+        return aeronaves;
+    }
+
+
 }
