@@ -27,6 +27,11 @@ public class GerenciadorCias {
 
         return null;
     }
+    
+     public ArrayList<CiaAerea> ListarTodos(){
+        
+        return empresas;
+    }
 
 
     public static GerenciadorCias instance;
