@@ -18,6 +18,16 @@ public class GerenciadorCias {
         }
         return null;
     }
+    public CiaAerea procurarPorNome(String cod){
+        for (int i=0; i<empresas.size(); i++){
+            CiaAerea a = empresas.get(i);
+            if(a.getCodigo().equals(cod))
+            return a;
+        }
+
+        return null;
+    }
+
 
     public static GerenciadorCias instance;
     public static GerenciadorCias getInstance(){
