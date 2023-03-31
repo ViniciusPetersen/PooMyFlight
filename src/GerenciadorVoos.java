@@ -26,6 +26,7 @@ public class GerenciadorVoos {
 
     public ArrayList<Voo> procurarPorData(LocalDate data){
         ArrayList<Voo> dataEspecifica;
+        dataEspecifica = new ArrayList<>(); 
 
         for (int i=0; i<viagens.size(); i++){
             Voo a = viagens.get(i);
@@ -33,6 +34,6 @@ public class GerenciadorVoos {
             dataEspecifica.add(a);
         }
 
-        return null;
+        return dataEspecifica;
     }
 }

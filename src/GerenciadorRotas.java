@@ -20,4 +20,18 @@ public class GerenciadorRotas {
         }
         return instance;
     }
+    public ArrayList<Rota> procurarPorOrigem(Aeroporto origem){
+        ArrayList<Rota> rotasOrigem;
+        rotasOrigem = new ArrayList<>();
+        for (int i=0; i<rotas.size(); i++){
+        
+            if(rotas.get(i).getOrigem().equals(origem))
+            rotasOrigem.add(rotas.get(i));
+        }
+
+        return rotasOrigem;
+    }
+    public ArrayList<Rota> ListarTodos(){
+        return rotas;
+    }
 }
