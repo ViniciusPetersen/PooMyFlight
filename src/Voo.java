@@ -18,7 +18,16 @@ public class Voo {
         this.rota = umaRota;
         this.status = umStatus;
     }
+    public Voo(Duration umaDuracao, Rota umaRota,Status umStatus){
+        this.duracao = umaDuracao;
+        this.rota = umaRota;
+        this.status = umStatus;
+        LocalDateTime DataHora3 = LocalDateTime.of( 2016, 8, 12, 12 ,00);
+    }
     
+    public static double Distancia(double o1, double o2){
+
+    }
     
     public LocalDateTime getDataHora(){
         return datahora;
