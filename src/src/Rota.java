@@ -1,9 +1,11 @@
+package src;
+
 public class Rota{
     private CiaAerea ciaaerea;
     private Aeroporto origem;
     private Aeroporto destino;
     private Aeronave aeronave;
-    
+
 
     public Rota(CiaAerea umaCiaaerea, Aeroporto umaOrigem, Aeroporto umDestino, Aeronave umaAeronave){
         this.ciaaerea = umaCiaaerea;

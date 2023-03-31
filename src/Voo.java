@@ -17,8 +17,6 @@ public class Voo {
         this.duracao = umaDuracao;
         this.rota = umaRota;
         this.status = umStatus;
-        datahora = LocalDateTime.of(2019, 9, 20, 14, 00, 0);
-        duracao = Duration.ofMinutes(130);
     }
     
     

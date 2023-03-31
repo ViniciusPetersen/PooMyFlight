@@ -1,8 +1,9 @@
+
 import java.util.ArrayList;
 
 public class GerenciadorCias {
     private ArrayList<CiaAerea> empresas;
-    private GerenciadorCias(){
+    public GerenciadorCias(){
         empresas = new ArrayList<>();
     }
 
@@ -18,10 +19,10 @@ public class GerenciadorCias {
         }
         return null;
     }
-    public CiaAerea procurarPorNome(String cod){
+    public CiaAerea procurarPorNome(String nome){
         for (int i=0; i<empresas.size(); i++){
             CiaAerea a = empresas.get(i);
-            if(a.getCodigo().equals(cod))
+            if(a.getNome().equals(nome))
             return a;
         }
 

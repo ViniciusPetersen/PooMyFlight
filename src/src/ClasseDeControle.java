@@ -1,9 +1,8 @@
-
+package src;
 import java.time.Duration;
 import java.time.LocalDateTime;
-
 import javax.swing.GroupLayout.Group;
-
+import src.Voo;
 
 public class ClasseDeControle {
     public static void main(String[] args) throws Exception {
@@ -26,8 +25,8 @@ public class ClasseDeControle {
         Aeroporto aero1 = new Aeroporto("Poa", "Salgado Filho",loc1);
         Aeroporto aero2 = new Aeroporto("GRU", "Guarulhos", loc2);
         GerenciadorAeroportos gAeroporto = new GerenciadorAeroportos();
-        gAeroporto.adicionarAeroporto(aero1);
-        gAeroporto.adicionarAeroporto(aero2);
+        gAeroporto.adicionar(aero1);
+        gAeroporto.adicionar(aero2);
         System.out.println();
         System.out.println();
         Rota rota1 = new Rota(cia1,aero2,aero1,aviao1);

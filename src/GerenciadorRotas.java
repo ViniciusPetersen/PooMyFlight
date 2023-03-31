@@ -1,9 +1,10 @@
+
 import java.util.ArrayList;
 
 public class GerenciadorRotas {
 
     private ArrayList<Rota>rotas;
-    private GerenciadorRotas(){
+    public GerenciadorRotas(){
         rotas = new ArrayList<>();
     }
     private Aeronave aeronave;
@@ -20,18 +21,20 @@ public class GerenciadorRotas {
         }
         return instance;
     }
-    public ArrayList<Rota> procurarPorOrigem(Aeroporto origem){
-        ArrayList<Rota> rotasOrigem;
+
+    public ArrayList<Rota> procurarPorOrigem(Aeroporto orig){
+        ArrayList<Rota>rotasOrigem;
         rotasOrigem = new ArrayList<>();
         for (int i=0; i<rotas.size(); i++){
-        
-            if(rotas.get(i).getOrigem().equals(origem))
+            if(rotas.get(i).getOrigem().equals(orig))
             rotasOrigem.add(rotas.get(i));
         }
-
-        return rotasOrigem;
+    return rotasOrigem;
     }
+
     public ArrayList<Rota> ListarTodos(){
         return rotas;
     }
+
+
 }
