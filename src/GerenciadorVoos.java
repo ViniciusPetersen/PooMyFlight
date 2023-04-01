@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class GerenciadorVoos {
     private ArrayList<Voo>viagens;
-    private GerenciadorVoos(){
+    public GerenciadorVoos(){
         viagens= new ArrayList<>();
     }
 

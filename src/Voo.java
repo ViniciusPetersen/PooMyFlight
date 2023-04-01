@@ -12,22 +12,19 @@ public class Voo {
     private Status status;
 
 
-    public Voo(LocalDateTime umaDataHora, Duration umaDuracao, Rota umaRota, Status umStatus){
+    public Voo(LocalDateTime umaDataHora, Duration umaDuracao, Rota umaRota){//, Status umStatus
         this.datahora = umaDataHora;
         this.duracao = umaDuracao;
         this.rota = umaRota;
-        this.status = umStatus;
+        this.status = Status.CONFIRMADO;
     }
-    public Voo(Duration umaDuracao, Rota umaRota,Status umStatus){
+    public Voo(Duration umaDuracao, Rota umaRota){//, Status umStatus
         this.duracao = umaDuracao;
         this.rota = umaRota;
-        this.status = umStatus;
-        LocalDateTime DataHora3 = LocalDateTime.of( 2016, 8, 12, 12 ,00);
+        this.status = Status.CONFIRMADO;
+        datahora = LocalDateTime.of( 2016, 8, 12, 12 ,00);
     }
     
-    public static double Distancia(double o1, double o2){
-
-    }
     
     public LocalDateTime getDataHora(){
         return datahora;

@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import javax.swing.GroupLayout.Group;
 
 
+
 public class ClasseDeControle {
     public static void main(String[] args) throws Exception {
         CiaAerea cia1 = new CiaAerea("G3","GOl");
@@ -39,8 +40,14 @@ public class ClasseDeControle {
         LocalDateTime dataHora2 = LocalDateTime.of(2023, 04, 14, 12, 45);
         Duration duracao1 = Duration.ofMinutes(180);
         Duration duracao2 = Duration.ofMinutes(165);
-        Voo voo1 = new Voo(dataHora1, duracao1, rota1, Status.ATRASADO);
-        Voo voo2 = new Voo();
+        Voo voo1 = new Voo(dataHora1, duracao1, rota1);
+        Voo voo2 = new Voo(dataHora2, duracao2, rota2);
+        GerenciadorVoos gVoos = new GerenciadorVoos();
+        gVoos.adicionar(voo1);
+        gVoos.adicionar(voo2);
+        System.out.println(GerenciadorAeroportos.Distancia(loc1,loc2));
+        System.out.println("Total de empresas: "+CiaAerea.getTotalCias());
+
 
         System.out.println();
         //Voo voo1 = new Voo(getDataHora(), 100, "G3: POA-GRU", "CONFIRMADO");
