@@ -6,8 +6,8 @@ public class VooVariasEscalas extends Voo{
     private ArrayList<Rota> escalas;
 
     // Construtor
-    public VooVariasEscalas(Rota rota, LocalDateTime datahora, Duration duracao) {
-        super(datahora, duracao,rota);
+    public VooVariasEscalas(Rota rota, LocalDateTime datahora, Duration duracao, Status status) {
+        super(datahora, duracao,rota, status);
         escalas = new ArrayList<>();
     }
 
