@@ -32,5 +32,13 @@ public class Voo {
     public Duration getDuracao(){
         return duracao;
     }
-
+    public Rota getRota(){
+        return rota;
+    }
+    public Status getStatus(){
+        return status;
+    }
+    public String toString(){
+        return status + " " + datahora + "(" + duracao+"): " + rota;
+    }
 }
