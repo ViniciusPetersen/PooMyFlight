@@ -33,9 +33,13 @@ public class ClasseDeControle {
         System.out.println();
         Rota rota1 = new Rota(cia1,aero2,aero1,aviao1);
         Rota rota2 = new Rota(cia2,aero1,aero2,aviao2);
+        Rota rota3 = new Rota(cia2,aero2,aero1,aviao2);
+        Rota rota4 = new Rota(cia1,aero2,aero1,aviao2);
         GerenciadorRotas gRotas = new GerenciadorRotas();
         gRotas.adicionar(rota1);
         gRotas.adicionar(rota2);
+        gRotas.adicionar(rota3);
+        gRotas.adicionar(rota4);
         LocalDateTime dataHora1 = LocalDateTime.of(2023, 04, 7, 20, 30);
         LocalDateTime dataHora2 = LocalDateTime.of(2023, 04, 14, 12, 45);
         Duration duracao1 = Duration.ofMinutes(180);
@@ -45,8 +49,18 @@ public class ClasseDeControle {
         GerenciadorVoos gVoos = new GerenciadorVoos();
         gVoos.adicionar(voo1);
         gVoos.adicionar(voo2);
+        System.out.println(voo1.toString());
         System.out.println(GerenciadorAeroportos.Distancia(loc1,loc2));
         System.out.println("Total de empresas: "+CiaAerea.getTotalCias());
+        VooEscalas vooE1 = new VooEscalas(rota1, rota2, dataHora2, duracao2);
+        System.out.println(vooE1.toString());
+        VooVariasEscalas vooVE1 = new VooVariasEscalas(rota1, dataHora2, duracao2);
+        vooVE1.adicionarEscala(rota3);
+        vooVE1.adicionarEscala(rota2);
+        System.out.println(vooVE1.toString());
+
+
+
 
 
         System.out.println();
