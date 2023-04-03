@@ -5,18 +5,18 @@ public class Voo {
     public enum Status{
         CONFIRMADO, ATRASADO, CANCELADO
     };
-
+    
     private LocalDateTime datahora;
     private Duration duracao;
     public Rota rota;
     private Status status;
 
 
-    public Voo(LocalDateTime umaDataHora, Duration umaDuracao, Rota umaRota){//, Status umStatus
+    public Voo(LocalDateTime umaDataHora, Duration umaDuracao, Rota umaRota, Status status){//, Status umStatus
         this.datahora = umaDataHora;
         this.duracao = umaDuracao;
         this.rota = umaRota;
-        this.status = Status.CONFIRMADO;
+        this.status = status;
     }
     public Voo(Duration umaDuracao, Rota umaRota){//, Status umStatus
         this.duracao = umaDuracao;
@@ -39,6 +39,6 @@ public class Voo {
         return status;
     }
     public String toString(){
-        return status + " " + datahora + "(" + duracao+"): " + rota;
+        return status + " " + datahora + "(" + duracao+"): " + rota.getDestino().getNome();
     }
 }
