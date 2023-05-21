@@ -10,7 +10,7 @@ public class GerenciadorAeroportos {
 
     public static GerenciadorAeroportos instance;
 
-    public void adicionarAeroporto(Aeroporto aeroporto){
+    public void adicionar(Aeroporto aeroporto){
         aeroportos.add(aeroporto);
     }
 

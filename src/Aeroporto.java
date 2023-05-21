@@ -2,10 +2,13 @@ public class Aeroporto {
     private String codigo;
     private String nome;
     private Geo loc;
-    private Rota rota;
-    public Aeroporto(String umCodigo, String umNome, Geo loc){
+    private String codPais;
+    public Aeroporto(String umCodigo, Geo loc,String umNome,  String codPais){
         this.codigo = umCodigo;
         this.nome = umNome;
+        this.loc = loc;
+        this.codPais = codPais;
+
     }
     public String getCodigo(){
         return codigo;
@@ -16,5 +19,10 @@ public class Aeroporto {
     public Geo getLoc(){
         return loc;
     }
+    public String getCodPais() {
+        return codPais;
+    }
+
+
 
 }
