@@ -1,10 +1,10 @@
 public class Pais {
-    private String nome;
-    private String codigo;
+    String nome;    
+    String codigo;
 
-    public Pais(String codigo, String nome){
-        this.codigo = codigo;
-        this.nome = nome;
+    public Pais(String codigo, String nome ){
+        codigo = this.codigo;
+        nome = this.nome;
     }
 
     public String getNome() {
@@ -15,6 +15,5 @@ public class Pais {
         return codigo;
     }
 
-    
     
 }
