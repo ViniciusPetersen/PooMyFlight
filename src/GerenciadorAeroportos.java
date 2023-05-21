@@ -14,7 +14,7 @@ public class GerenciadorAeroportos {
         aeroportos.add(aeroporto);
     }
 
-    public static GerenciadorAeroportos getInstance(){
+    public static Gerenciador getInstance(){
         if(instance == null){
             instance = new GerenciadorAeroportos();
         }
