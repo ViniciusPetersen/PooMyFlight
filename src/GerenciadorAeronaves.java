@@ -26,7 +26,7 @@ public class GerenciadorAeronaves {
         return null;
     }
 
-    public void adicionarAeronave(Aeronave aviao){
+    public void adicionar(Aeronave aviao){
         aeronaves.add(aviao);
     }
     public ArrayList<Aeronave> ListarTodos(){
