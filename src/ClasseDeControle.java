@@ -1,6 +1,14 @@
 
+import java.nio.file.Files;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+
 
 
 
@@ -8,7 +16,131 @@ import java.time.LocalDateTime;
 
 public class ClasseDeControle {
     public static void main(String[] args) throws Exception {
-        CiaAerea cia1 = new CiaAerea("G3","GOl");
+        
+         /*String[] ciaAreas = new String[]{"airlines.dat"};
+         String[] aeronaves = new String[]{"equipment.dat"};
+         String[] paises = new String[]{"countries.dat"};
+         String[] routes = new String[]{"routes.dat"};
+         String[] aeroportos = new String[]{"airports.dat"};*/
+         GerenciadorAeronaves gAeronaves = new GerenciadorAeronaves();
+         GerenciadorCias gCias = new GerenciadorCias();
+         GerenciadorPaises gPaises = new GerenciadorPaises();
+         GerenciadorAeroportos gAeroportos = new GerenciadorAeroportos();
+         GerenciadorRotas gRotas = new GerenciadorRotas();
+           
+         Path path1 = Paths.get("airlines.dat");
+		try (BufferedReader reader = Files.newBufferedReader(path1, Charset.forName("utf8"))) {
+			String line = null;
+			line=reader.readLine();
+			while ((line = reader.readLine()) != null) {
+				String[] dados1 = line.split(";");
+                CiaAerea cia = new CiaAerea(dados1[0],dados1[1]);
+				gCias.adicionar(cia);
+                
+               /*  ArrayList<CiaAerea> gCias2 = gCias.ListarTodos();
+                for (CiaAerea ciaAerea : gCias2) {
+                    System.out.println(ciaAerea.getCodigo()+";"+ciaAerea.getNome());
+                }*/
+                
+			}}
+            catch (IOException x) {
+                System.err.format("Erro de E/S: %s%n", x);
+            }
+        
+            
+
+            Path path2 = Paths.get("countries.dat");
+            try (BufferedReader reader2 = Files.newBufferedReader(path2, Charset.forName("utf8"))) {
+                String line = null;
+                line=reader2.readLine();
+                while ((line = reader2.readLine()) != null) {
+                    String[] dados2 = line.split(";");
+                    Pais pais = new Pais(dados2[0],dados2[1]);
+                    gPaises.adicionar(pais);
+                    
+                     /*ArrayList<Pais> gPais2 = gPaises.ListarTodos();
+                    for (Pais Pais : gPais2) {
+                        System.out.println(Pais.getCodigo()+";"+Pais.getNome());
+                    }*/
+                    
+                }
+    }
+    catch (IOException x) {
+        System.err.format("Erro de E/S: %s%n", x);
+    }
+
+            Path path3 = Paths.get("airports.dat");
+            try (BufferedReader reader3 = Files.newBufferedReader(path3, Charset.forName("utf8"))) {
+                String line = null;
+                line=reader3.readLine();
+                while ((line = reader3.readLine()) != null) {
+                    String[] dados3 = line.split(";");
+                    double longi = Double.parseDouble(dados3[2]);
+                    double lat = Double.parseDouble(dados3[1]);
+                    Geo loc = new Geo(lat,longi);
+                    Aeroporto Aeroporto = new Aeroporto(dados3[0],loc,dados3[3],dados3[4]);
+                    gAeroportos.adicionar(Aeroporto);
+                    
+                    /*  ArrayList<Aeroporto> gAeroporto2 = gAeroportos.ListarTodos();
+                    for (Aeroporto aeroporto : gAeroporto2) {
+                        System.out.println(aeroporto.getCodigo()+";"+aeroporto.getLoc().getLatitude()+";"+aeroporto.getLoc().getLongitutde() +";"+aeroporto.getNome()+";"+ aeroporto.getCodPais());
+                    }*/
+                    
+                }
+    }
+    catch (IOException x) {
+        System.err.format("Erro de E/S: %s%n", x);
+    }
+    Path path4 = Paths.get("equipment.dat");
+            try (BufferedReader reader4 = Files.newBufferedReader(path4, Charset.forName("utf8"))) {
+                String line = null;
+                line=reader4.readLine();
+                while ((line = reader4.readLine()) != null) {
+                    String[] dados4 = line.split(";");
+                    int capacidade = Integer.parseInt(dados4[2]);
+                    Aeronave aeronave = new Aeronave(dados4[0],dados4[1],capacidade);
+                    gAeronaves.adicionar(aeronave);
+                    
+                     /*ArrayList<Aeronave> gAeronave2 = gAeronaves.ListarTodos();
+                    for (Aeronave aeronave1 : gAeronave2) {
+                        System.out.println(aeronave1.getCodigo()+";"+aeronave1.getDescricao()+";"+aeronave1.getCapacidade());
+                    }*/
+                    
+                }
+    }
+    catch (IOException x) {
+        System.err.format("Erro de E/S: %s%n", x);
+    }
+    Path path5 = Paths.get("routes.dat");
+            try (BufferedReader reader5 = Files.newBufferedReader(path5, Charset.forName("utf8"))) {
+                String line = null;
+                line=reader5.readLine();
+                while ((line = reader5.readLine()) != null) {
+                    String[] dados5 = line.split(";");
+                    CiaAerea cia = gCias.procurarPorCodigo(dados5[0]);
+                    Aeroporto aeroportoOrigem = gAeroportos.procurarPorCodigo(dados5[1]);
+                    Aeroporto aeroportoDestino = gAeroportos.procurarPorCodigo(dados5[2]);
+                    Aeronave aeronave = gAeronaves.procurarPorCodigo(dados5[5]);
+
+                    Rota rota = new Rota(cia, aeroportoOrigem, aeroportoDestino, aeronave);
+                    gRotas.adicionar(rota);
+                    
+                     /*ArrayList<Rota> gRota = gRotas.ListarTodos();
+                    for (Rota rota1: gRota) {
+                        System.out.println(rota1.getCiaarea().getCodigo()+";"+rota1.getOrigem().getCodigo()+";"+rota1.getDestino().getCodigo()+";"+rota1.getAeronave().getCodigo());
+                    }*/
+                    
+                }
+    }
+    catch (IOException x) {
+        System.err.format("Erro de E/S: %s%n", x);
+    }
+
+}
+
+
+
+    /*CiaAerea cia1 = new CiaAerea("G3","GOl");
         CiaAerea cia2 = new CiaAerea("JJ", "LATAM");
         CiaAerea cia3 = new CiaAerea("TP", "TAP Portugal");
         CiaAerea cia4 = new CiaAerea("AD", "Azul Linhas Aéreas");
@@ -84,8 +216,5 @@ public class ClasseDeControle {
 
         System.out.println();
         //Voo voo1 = new Voo(getDataHora(), 100, "G3: POA-GRU", "CONFIRMADO");
-        System.out.println();    
-         
-           
-    }
+        System.out.println();*/ 
 }
